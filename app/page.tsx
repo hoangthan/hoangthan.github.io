@@ -259,11 +259,33 @@ export default function Portfolio() {
               </motion.a>
             ))}
           </nav>
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <button className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        {/* Mobile Menu (Hidden by default, can be toggled with JS if needed) */}
+        <div className="md:hidden hidden bg-white/90 backdrop-blur-md border-b border-slate-200/50">
+          <nav className="flex flex-col px-4 py-2 space-y-2">
+            {["About", "Experience"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium py-2 border-b border-slate-200/30"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
         </div>
       </motion.header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-10 md:py-20 px-4">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -271,18 +293,18 @@ export default function Portfolio() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-8"
           >
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100">
+            <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100">
               <img
                 src="/images/profile-avatar.jpg"
                 alt="Steve Hoang - Senior Android Developer"
                 className="w-full h-full object-cover object-[center_20%]"
               />
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-slate-800 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-slate-800 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Steve Hoang
             </h1>
-            <p className="text-2xl md:text-3xl text-slate-600 mb-6 font-light">Senior Android Developer</p>
-            <p className="text-lg text-slate-500 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl lg:text-3xl text-slate-600 mb-6 font-light">Senior Android Developer</p>
+            <p className="text-base md:text-lg text-slate-500 max-w-4xl mx-auto leading-relaxed">
               Senior mobile developer with 7+ years of expertise in Android and Flutter development. Specialized in
               reverse engineering, security implementation, and performance optimization. Proven track record of leading
               award-winning mobile applications from architecture design to production deployment, with deep knowledge
@@ -294,7 +316,7 @@ export default function Portfolio() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-            className="flex justify-center space-x-8 text-slate-600"
+            className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-slate-600"
           >
             <a
               href="https://linkedin.com/in/thanhq/"
@@ -333,25 +355,29 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="about" className="py-20 px-4 bg-white">
+      <section id="about" className="py-16 md:py-24 px-4 bg-blue-50/50 border-y border-slate-200/50">
         <div className="container mx-auto">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
           >
-            <h2 className="text-4xl font-bold mb-4 text-slate-800">Technical Skills</h2>
-            <p className="text-slate-500 text-lg">Comprehensive expertise across the mobile development stack</p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto">
+            Technical Expertise
+          </motion.h2>
+          <div className="max-w-5xl mx-auto">
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+                hidden: {},
+              }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {skillCategories.map((category, index) => {
@@ -390,49 +416,44 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-4">
+      <section id="experience" className="py-16 md:py-24 px-4">
         <div className="container mx-auto">
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
           >
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
-              Work Experience
-            </h2>
-            <p className="text-slate-600 text-lg">My professional journey and shipped applications</p>
-          </motion.div>
-
+            Professional Experience
+          </motion.h2>
           <div className="max-w-4xl mx-auto space-y-8">
             {experiences.map((exp, index) => (
               <motion.div
-                key={index}
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+                key={exp.company}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
                   <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-100/50">
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
                       <div>
                         <CardTitle className="text-xl text-slate-800 mb-1">{exp.company}</CardTitle>
                         <CardDescription className="text-blue-600 font-semibold text-base">{exp.role}</CardDescription>
                       </div>
-                      <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50">
+                      <Badge variant="outline" className="border-blue-200 text-blue-700 bg-blue-50 mt-2 md:mt-0">
                         <Calendar className="w-3 h-3 mr-1" />
                         {exp.period}
                       </Badge>
                     </div>
                   </CardHeader>
-                  <CardContent className="p-6">
-                    <p className="text-slate-600 mb-4 leading-relaxed">{exp.description}</p>
+                  <CardContent className="p-4 md:p-6">
+                    <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">{exp.description}</p>
 
                     <div className="mb-4">
-                      <h4 className="font-semibold text-slate-800 mb-2">Key Achievements:</h4>
-                      <ul className="space-y-1">
+                      <h4 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Key Achievements:</h4>
+                      <ul className="space-y-1 text-sm md:text-base">
                         {exp.highlights.map((highlight, idx) => (
                           <li key={idx} className="text-slate-600 flex items-start">
                             <Award className="w-4 h-4 mr-2 mt-0.5 text-blue-500 flex-shrink-0" />
@@ -443,13 +464,13 @@ export default function Portfolio() {
                     </div>
 
                     <div className={exp.links ? "mb-4" : ""}>
-                      <h4 className="font-semibold text-slate-800 mb-2">Technologies:</h4>
+                      <h4 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Technologies:</h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech, idx) => (
                           <Badge
                             key={idx}
                             variant="secondary"
-                            className="bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
+                            className="bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-xs md:text-sm"
                           >
                             {tech}
                           </Badge>
@@ -459,7 +480,7 @@ export default function Portfolio() {
 
                     {exp.links && (
                       <div>
-                        <h4 className="font-semibold text-slate-800 mb-2">Project Links:</h4>
+                        <h4 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Project Links:</h4>
                         <div className="flex flex-wrap gap-3">
                           {exp.links.map((link, idx) => (
                             <a
@@ -467,13 +488,13 @@ export default function Portfolio() {
                               href={link.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium text-sm"
+                              className="inline-flex items-center space-x-2 px-3 py-1 md:px-4 md:py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium text-xs md:text-sm"
                             >
                               <span>{link.name}</span>
                               {link.name === "Instagram" ? (
-                                <Instagram className="w-4 h-4" />
+                                <Instagram className="w-3 h-3 md:w-4 md:h-4" />
                               ) : (
-                                <ExternalLink className="w-4 h-4" />
+                                <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
                               )}
                             </a>
                           ))}

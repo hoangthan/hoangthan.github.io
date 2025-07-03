@@ -40,4 +40,4 @@ jobs:
         publish_branch: gh-pages
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
-        repository_name: 'hoangthan/stevehoang.github.io'
+        repository_name: 'hoangthan/hoangthan.github.io'

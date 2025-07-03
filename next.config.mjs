@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
   eslint: {
@@ -11,8 +12,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/steve-hoang-portfolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/steve-hoang-portfolio/' : '',
+  basePath: '/stevehoang.github.io',
+  assetPrefix: '/stevehoang.github.io/',
 }
 
 export default nextConfig

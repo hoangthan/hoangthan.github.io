@@ -282,7 +282,7 @@ export default function Portfolio() {
               Steve Hoang
             </h1>
             <p className="text-2xl md:text-3xl text-slate-600 mb-6 font-light">Senior Android Developer</p>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-500 max-w-4xl mx-auto leading-relaxed">
               Senior mobile developer with 7+ years of expertise in Android and Flutter development. Specialized in
               reverse engineering, security implementation, and performance optimization. Proven track record of leading
               award-winning mobile applications from architecture design to production deployment, with deep knowledge
@@ -297,27 +297,36 @@ export default function Portfolio() {
             className="flex justify-center space-x-8 text-slate-600"
           >
             <a
+              href="https://linkedin.com/in/thanhq/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 hover:text-blue-600 transition-colors cursor-pointer"
+            >
+              <img src="/images/linkedin-icon.svg" alt="LinkedIn" className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://hoangthan.github.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 hover:text-blue-600 transition-colors cursor-pointer"
+            >
+              <img src="/images/github-icon.svg" alt="Portfolio" className="w-5 h-5" />
+              <span>Portfolio</span>
+            </a>
+            <a
               href="mailto:hoangthan345@gmail.com"
               className="flex items-center space-x-2 hover:text-blue-600 transition-colors cursor-pointer"
             >
-              <Mail className="w-5 h-5" />
-              <span>hoangthan345@gmail.com</span>
+              <img src="/images/email-icon.svg" alt="Email" className="w-5 h-5" />
+              <span>Email</span>
             </a>
             <a
               href="tel:+84-362834343"
               className="flex items-center space-x-2 hover:text-blue-600 transition-colors cursor-pointer"
             >
-              <Phone className="w-5 h-5" />
-              <span>+84-362834343</span>
-            </a>
-            <a
-              href="http://linkedin.com/in/thanhq/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 hover:text-blue-600 transition-colors cursor-pointer"
-            >
-              <Linkedin className="w-5 h-5" />
-              <span>LinkedIn</span>
+              <img src="/images/phone-icon.svg" alt="Phone" className="w-5 h-5" />
+              <span>Phone</span>
             </a>
           </motion.div>
         </div>
